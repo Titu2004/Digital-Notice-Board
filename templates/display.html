@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Notice Board</title>
+    <meta http-equiv="refresh" content="10">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>📢 Digital Notice Board</h1>
+
+{% for n in notices %}
+<div class="notice">
+    <h3>{{ n[1] }}</h3>
+    <p>{{ n[2] }}</p>
+    <small>Category: {{ n[3] }} | Valid till: {{ n[4] }}</small>
+</div>
+{% else %}
+<p>No active notices</p>
+{% endfor %}
+
+</body>
+</html>

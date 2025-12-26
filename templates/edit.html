@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Notice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Edit Notice</h2>
+
+<form method="post">
+    <input type="text" name="title" value="{{ notice[1] }}" required>
+    <textarea name="content">{{ notice[2] }}</textarea>
+    <input type="text" name="category" value="{{ notice[3] }}">
+    <input type="date" name="expiry" value="{{ notice[4] }}">
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Admin Panel</h2>
+<a href="/logout">Logout</a>
+
+<form method="post">
+    <input type="text" name="title" placeholder="Title" required>
+    <textarea name="content" placeholder="Content" required></textarea>
+    <input type="text" name="category" placeholder="Category" required>
+    <input type="date" name="expiry" required>
+    <button type="submit">Add Notice</button>
+</form>
+
+<hr>
+
+<h3>All Notices</h3>
+{% for n in notices %}
+<div class="notice">
+    <b>{{ n[1] }}</b>
+    <a href="/edit/{{ n[0] }}">Edit</a>
+    <a href="/delete/{{ n[0] }}">Delete</a>
+</div>
+{% endfor %}
+
+</body>
+</html>
